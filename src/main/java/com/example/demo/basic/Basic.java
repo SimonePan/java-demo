@@ -1,13 +1,17 @@
 package com.example.demo.basic;
 
+import com.example.demo.enums.Season;
+
 /**
  * @author Grace.Pan
  * @date 2019/6/17
  */
+
 public class Basic extends BasicBase {
 
     static int i = 9;
     String nick;
+    Season season;
 
     //{ } 构造块，只要对象创建就会执行一次。一个类允许有多个构造块。
     {
@@ -43,5 +47,21 @@ public class Basic extends BasicBase {
     @Override
     public void overrideMethod() {
         System.out.println("本类 overrideMethodm 方法-----" + nick + "---" + i);
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
     }
 }
