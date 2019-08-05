@@ -1,6 +1,6 @@
 package com.example.demo.collection;
 
-import com.example.demo.basic.Basic;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
  * @author Grace.Pan
  * @date 2019/6/23
  */
+@Slf4j
 public class ArrayTest {
 
     @Test
@@ -68,23 +69,12 @@ public class ArrayTest {
     }
 
     @Test
-    public void test() {
-        Assert.assertEquals(4, 9 / 2);
+    public void testEmptyEqual() {
+        Object[] arr1 = {};
+        Object[] arr2 = {};
+        log.info("arr1.equals(arr2)=" + arr1.equals(arr2));
+        log.info("arr1==arr2=" + (arr1 == arr2));
     }
 
-    @Test
-    public void testObject() {
-        Basic basic = new Basic("nick");
-        Basic newBasic = basic;
 
-        basic.setNick("nick1");
-        Assert.assertEquals(basic.getNick(), newBasic.getNick());
-
-        newBasic.setNick("newNick");
-        Assert.assertEquals(basic.getNick(), newBasic.getNick());
-
-        final Basic f = basic;
-        f.setNick("finalNick");
-        Assert.assertEquals(f.getNick(), newBasic.getNick());
-    }
 }

@@ -24,4 +24,24 @@ public class MiddleTest {
         Assert.assertNull(integer);
     }
 
+    @Test
+    public void test() {
+        Assert.assertEquals(4, 9 / 2);
+    }
+
+    @Test
+    public void testObject() {
+        Basic basic = new Basic("nick");
+        Basic newBasic = basic;
+
+        basic.setNick("nick1");
+        Assert.assertEquals(basic.getNick(), newBasic.getNick());
+
+        newBasic.setNick("newNick");
+        Assert.assertEquals(basic.getNick(), newBasic.getNick());
+
+        final Basic f = basic;
+        f.setNick("finalNick");
+        Assert.assertEquals(f.getNick(), newBasic.getNick());
+    }
 }

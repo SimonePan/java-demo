@@ -16,6 +16,7 @@ public class HashMapTest {
     @Test
     public void testHashMap(){
         HashMap<String, String> map = new HashMap<>();
+        map.entrySet().iterator();
         // 数组+链表实现。
         // 数组的元素：Node<K,V>[] table;每个Node都是链表的头节点。
         // size 实际存储的键值对个数。
