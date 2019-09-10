@@ -19,7 +19,9 @@ public class SynchronizedDemo {
      * 实例方法
      */
     public synchronized void play() {
-        log.info("--play--");
+        log.info("--play-start-");
+        sleep(100);
+        log.info("--play--end--");
     }
 
     /**
@@ -34,7 +36,9 @@ public class SynchronizedDemo {
      */
     public void playSync() {
         synchronized (this) {
-            log.info("---playSync---");
+            log.info("---playSync--start--");
+            sleep(100);
+            log.info("---playSync--end--");
         }
     }
 
@@ -43,31 +47,34 @@ public class SynchronizedDemo {
      */
     public void playSyncObject() {
         synchronized (SynchronizedDemo.class) {
-            log.info("---playSyncObject---");
+            log.info("---playSyncObject--start--");
+            sleep(100);
+            log.info("---playSyncObject--end--");
         }
     }
 
     /**
-     * 类对象
+     * 类属性
      */
     public void playSyncOther() {
         synchronized (lock) {
-            log.info("---playSyncOther---");
+            log.info("---playSyncOther--start--");
             sleep(100);
+            log.info("---playSyncOther--end--");
         }
     }
 
     public void playSyncOther2() {
         synchronized (lock) {
-            log.info("---playSyncOther2---");
+            log.info("---playSyncOther2--start--");
             sleep(100);
+            log.info("---playSyncOther2--end--");
         }
     }
 
     private void sleep(int time) {
         try {
             Thread.sleep(time);
-            log.info("---wake up---");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -77,7 +84,24 @@ public class SynchronizedDemo {
         SynchronizedDemo demo = new SynchronizedDemo();
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 1, TimeUnit.MINUTES,
                 new DelayQueue());
-        //threadPoolExecutor.execute(demo.playSyncOther());
+        threadPoolExecutor.execute(()->{
+            demo.play();
+        });
+        threadPoolExecutor.execute(()->{
+            SynchronizedDemo.staticPlay();
+        });
+        threadPoolExecutor.execute(()->{
+            demo.playSync();
+        });
+        threadPoolExecutor.execute(()->{
+            demo.playSyncObject();
+        });
+        threadPoolExecutor.execute(()->{
+            demo.playSyncOther();
+        });
+        threadPoolExecutor.execute(()->{
+            demo.playSyncOther2();
+        });
     }
 
 }
