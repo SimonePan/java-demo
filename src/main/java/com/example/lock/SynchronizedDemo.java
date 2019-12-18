@@ -85,22 +85,13 @@ public class SynchronizedDemo {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 1, TimeUnit.MINUTES,
                 new DelayQueue());
         threadPoolExecutor.execute(()->{
-            demo.play();
+            demo.playSyncObject();
         });
         threadPoolExecutor.execute(()->{
             SynchronizedDemo.staticPlay();
         });
         threadPoolExecutor.execute(()->{
-            demo.playSync();
-        });
-        threadPoolExecutor.execute(()->{
-            demo.playSyncObject();
-        });
-        threadPoolExecutor.execute(()->{
-            demo.playSyncOther();
-        });
-        threadPoolExecutor.execute(()->{
-            demo.playSyncOther2();
+            demo.play();
         });
     }
 
