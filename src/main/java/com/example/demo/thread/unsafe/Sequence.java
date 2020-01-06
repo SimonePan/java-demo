@@ -1,4 +1,6 @@
-package com.example.demo.thread.safe.unsafe;
+package com.example.demo.thread.unsafe;
+
+import java.util.ArrayList;
 
 /**
  * @description:

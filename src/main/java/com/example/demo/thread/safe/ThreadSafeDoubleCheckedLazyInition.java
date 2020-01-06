@@ -7,12 +7,12 @@ import com.example.demo.thread.unsafe.Sequence;
  * @author: Grace.Pan
  * @create: 2019-12-18 19:46
  */
-public class DoubleCheckedLazyInition {
-    private static Sequence sequence;
+public class ThreadSafeDoubleCheckedLazyInition {
+    private static volatile Sequence sequence;
 
     public static Sequence getSequence() {
         if (sequence == null) {
-            synchronized (DoubleCheckedLazyInition.class) {
+            synchronized (ThreadSafeDoubleCheckedLazyInition.class) {
                 if (sequence == null) {
                     sequence = new Sequence(2);
                 }

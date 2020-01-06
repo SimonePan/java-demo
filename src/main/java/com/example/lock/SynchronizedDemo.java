@@ -16,12 +16,19 @@ public class SynchronizedDemo {
     String lock = "lock";
 
     /**
+     * 类属性
+     */
+    public void playSyncOther() {
+        synchronized (lock) {
+            log.info("---playSyncOther--");
+        }
+    }
+
+    /**
      * 实例方法
      */
     public synchronized void play() {
-        log.info("--play-start-");
-        sleep(100);
-        log.info("--play--end--");
+        log.info("--play--");
     }
 
     /**
@@ -53,16 +60,6 @@ public class SynchronizedDemo {
         }
     }
 
-    /**
-     * 类属性
-     */
-    public void playSyncOther() {
-        synchronized (lock) {
-            log.info("---playSyncOther--start--");
-            sleep(100);
-            log.info("---playSyncOther--end--");
-        }
-    }
 
     public void playSyncOther2() {
         synchronized (lock) {
@@ -85,13 +82,13 @@ public class SynchronizedDemo {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 1, TimeUnit.MINUTES,
                 new DelayQueue());
         threadPoolExecutor.execute(()->{
-            demo.playSyncObject();
-        });
-        threadPoolExecutor.execute(()->{
-            SynchronizedDemo.staticPlay();
-        });
-        threadPoolExecutor.execute(()->{
             demo.play();
+        });
+        threadPoolExecutor.execute(()->{
+            demo.playSync();
+        });
+        threadPoolExecutor.execute(()->{
+            demo.playSyncOther();
         });
     }
 

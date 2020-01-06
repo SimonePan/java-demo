@@ -1,4 +1,4 @@
-package com.example.demo.thread.safe;
+package com.example.demo.thread.parallel;
 
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.Semaphore;

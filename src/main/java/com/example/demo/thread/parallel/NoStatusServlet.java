@@ -1,4 +1,4 @@
-package com.example.demo.thread.safe;
+package com.example.demo.thread.parallel;
 
 /**
  * @description: 无状态的Servlet

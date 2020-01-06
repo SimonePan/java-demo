@@ -1,4 +1,4 @@
-package com.example.demo.thread.safe;
+package com.example.demo.thread.parallel;
 
 import org.springframework.stereotype.Service;
 
