@@ -1,4 +1,4 @@
-package com.example.demo.design;
+package com.example.demo.design.single;
 
 /**
  * @author Grace.Pan
@@ -8,7 +8,7 @@ public class SingletonDemo {
 
     private static volatile SingletonDemo singleton;
 
-    private SingletonDemo() {
+    public SingletonDemo() {
 
     }
 

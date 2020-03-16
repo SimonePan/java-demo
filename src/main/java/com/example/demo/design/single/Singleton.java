@@ -1,4 +1,4 @@
-package com.example.demo.design;
+package com.example.demo.design.single;
 
 /**
  * @author Grace.Pan
