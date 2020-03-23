@@ -16,8 +16,8 @@ public class BasicBase<T> {
     }
 
     static {
-        System.out.println("父类 静态成员变量-----" + j);
         System.out.println("父类 静态代码块-----");
+        System.out.println("父类 静态成员变量-----" + j);
     }
 
     public BasicBase() {

@@ -28,4 +28,11 @@ interface FunctionalInterfaceDemo {
     @Override
     boolean equals(Object object);
 
+    static void main(String[] args) {
+        FunctionalInterfaceDemo sss = message -> System.out.println(message);
+        sss.do1();
+        sss.greeting("greeting");
+        sss.do2();
+    }
+
 }

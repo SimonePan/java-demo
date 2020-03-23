@@ -15,7 +15,7 @@ public enum Season {
     private String name;
     private int code;
 
-    private Season(String name, int code) {
+    Season(String name, int code) {
         this.name = name;
         this.code = code;
     }

@@ -8,13 +8,13 @@ public class SingletonDemo {
 
     private static volatile SingletonDemo singleton;
 
-    public SingletonDemo() {
+    private SingletonDemo() {
 
     }
 
     public static SingletonDemo getInstance() {
         if (singleton == null) {
-            synchronized (singleton) {
+            synchronized (SingletonDemo.class) {
                 if (singleton == null) {
                     singleton = new SingletonDemo();
                 }

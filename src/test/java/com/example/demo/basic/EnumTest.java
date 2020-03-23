@@ -14,8 +14,6 @@ public class EnumTest {
     public void testEnumSeriza() {
         Basic basic = new Basic("nick");
         basic.setSeason(Season.AUTUMN);
-        String s = JSON.toJSONString(basic);
-        Basic basic1 = JSON.parseObject(s, Basic.class);
     }
 
 }
