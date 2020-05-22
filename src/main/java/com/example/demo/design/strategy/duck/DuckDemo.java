@@ -10,5 +10,7 @@ public class DuckDemo {
         Duck mallardDuck = new MallardDuck();
         mallardDuck.performFly();
         mallardDuck.performQuack();
+        mallardDuck.setFlyBehavior(new FlyNoWay());
+        mallardDuck.performFly();
     }
 }
