@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @create: 2019-12-18 19:41
  */
 public class Sequence {
-    private int value;
+    private volatile int value;
 
     public Sequence(int value) {
         this.value = value;

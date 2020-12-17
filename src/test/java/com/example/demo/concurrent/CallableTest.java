@@ -35,6 +35,24 @@ public class CallableTest {
     }
 
     @Test
+    public void test() throws ExecutionException, InterruptedException {
+        Callable<String> callable = () -> "callable executed";
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 10, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+        Future<String> submit = executor.submit(callable);
+        System.out.println(submit.get());
+    }
+
+    @Test
+    public void testThread() throws ExecutionException, InterruptedException {
+        Callable<String> callable = () -> "callable executed";
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 10, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+        Future<String> submit = executor.submit(callable);
+        System.out.println(submit.get());
+    }
+
+    @Test
     public void testBlock() throws ExecutionException, InterruptedException {
         MyCallable name1 = new MyCallable("name1",10000);
         MyCallable name2 = new MyCallable("name2",0);
@@ -72,11 +90,11 @@ public class CallableTest {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 10, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
         CompletionService<Object> cs = new ExecutorCompletionService<>(executor);
         cs.submit(name1);
-         cs.submit(name2);
-         cs.submit(name3);
-         for (int i=0;i<3;i++){
-             System.out.println(cs.take().get());
-         }
+        cs.submit(name2);
+        cs.submit(name3);
+        for (int i=0;i<3;i++){
+            System.out.println(cs.take().get());
+        }
         /**
          * name2end
          return:name2

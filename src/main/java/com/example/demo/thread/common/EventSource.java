@@ -1,5 +1,6 @@
 package com.example.demo.thread.common;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -10,11 +11,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EventSource {
     private ThisEscape.Inner inner;
+    @Setter
+    private ThisEscape2 thisEscape;
     public void printName(ThisEscape.Inner inner) {
         this.inner = inner;
         log.info(this.inner.getName());
     }
     public void printName() {
-        log.info(inner.getName());
+        this.thisEscape.printName();
     }
 }
