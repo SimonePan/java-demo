@@ -1,0 +1,15 @@
+---
+name: "platformServiceFee rule"
+description: "express cal platform service fee"
+priority: 1
+condition: "buyAtCost"
+actions:
+  - ""
+
+---
+name: "buzz rule"
+description: "print buzz if the number is multiple of 7"
+priority: 2
+condition: "number % 7 == 0"
+actions:
+  - "System.out.println(\"buzz\")"

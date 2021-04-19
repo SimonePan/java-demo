@@ -1,3 +1,4 @@
+/*
 package com.example.demo.testable;
 
 import com.alibaba.testable.processor.annotation.EnablePrivateAccess;
@@ -6,10 +7,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+*/
 /**
  * 演示私有成员访问功能
  * Demonstrate private member access functionality
- */
+ *//*
+
 @EnablePrivateAccess
 class DemoPrivateAccessAnnoTest {
 
@@ -42,3 +45,4 @@ class DemoPrivateAccessAnnoTest {
     }
 
 }
+*/
